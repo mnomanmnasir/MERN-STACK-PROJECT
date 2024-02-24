@@ -32,4 +32,23 @@ const createInventoryController = async (req, res) => {
   }
 };
 
-module.exports = { createInventoryController };
+const getInventoryController = async (req, res) => {
+try{
+
+  const inventory = await inventoryModal.findOne({organization: req.body.userId})
+  return res.status(200).send({
+    success: true,
+    message: 'get all records successfully',
+    inventory
+  })
+}
+catch(error){
+console.log(error)
+return res.status(500).send({
+  success: false,
+  message: 'Error in Get all Inventory',
+  error
+})
+}
+}
+module.exports = { createInventoryController, getInventoryController };

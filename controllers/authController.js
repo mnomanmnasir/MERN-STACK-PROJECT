@@ -45,6 +45,14 @@ const loginController = async (req, res) => {
       });
     }
 
+    // check role
+    if (user.role !== req.body.role) {
+      return res.status(500).send({
+        success: false,
+        message: "role does not match",
+      });
+    }
+
     const comparePassword = await bcrypt.compare(
       req.body.password,
       user.password
@@ -81,7 +89,7 @@ const currentUserController = async (req, res) => {
     return res.status(200).send({
       success: true,
       message: "User Fetched Successfully",
-      user
+      user,
     });
   } catch (error) {
     console.log(error);
