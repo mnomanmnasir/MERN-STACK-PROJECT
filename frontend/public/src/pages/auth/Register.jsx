@@ -12,7 +12,7 @@ const Register = () => {
   const [typingEffect] = useTypewriter({
     words: wordsList,
     loop: {},
-    typeSpeed: 100,
+    typeSpeed: 50,
     deleteSpeed: 40,
   });
 
@@ -25,7 +25,7 @@ const Register = () => {
             backgroundImage: 'url("/assests/banner-2.webp")',
             opacity: 0.8,
             objectFit: "cover",
-            filter: "brightness(30%)",
+            filter: "brightness(40%)",
             backgroundRepeat: "no-repeat",
             // height: "100vh",
             // display: "flex",
@@ -53,7 +53,7 @@ const Register = () => {
             <ul className="text-black" style={{ color: "black" }}>
               {typingEffect.split("\n").map((word, index) => (
                 <li key={index}>
-                  {index === 0 ? "" : ""} {word} <Cursor />
+                  {index === 0 ? "" : ""} {word}
                 </li>
               ))}
             </ul>

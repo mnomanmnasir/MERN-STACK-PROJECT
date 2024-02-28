@@ -13,7 +13,7 @@ const Login = () => {
   const [typingEffect] = useTypewriter({
     words: wordsList,
     loop: {},
-    typeSpeed: 100,
+    typeSpeed: 50,
     deleteSpeed: 40,
   });
 
@@ -50,7 +50,7 @@ const Login = () => {
             <ul className="text-black" style={{ color: "black" }}>
               {typingEffect.split("\n").map((word, index) => (
                 <li key={index}>
-                  {index === 0 ? "" : ""} {word} <Cursor />
+                  {index === 0 ? "" : ""} {word} 
                 </li>
               ))}
             </ul>
