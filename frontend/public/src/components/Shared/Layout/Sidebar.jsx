@@ -13,7 +13,7 @@ const Sidebar = () => {
       <div className="sidebar">
         <div className="menu">
           {userMenu.map((menu) => {
-            const isActive = location.pathName === menu.path;
+            const isActive = location.pathname === menu.path;
             return (
               <div className={`menu-item ${isActive && "active"}`}>
                 <i className={menu.icon}></i>

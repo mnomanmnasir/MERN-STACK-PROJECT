@@ -7,11 +7,11 @@ export const userMenu = [
   {
     name: 'Donar',
     path: '/donar',
-    icon: 'fa-solid fa-hand-holding-circle-dollar'
+    icon: 'fa-solid fa-hand-holding-dollar'
   },
   {
     name: 'Hospital',
     path: '/hospital',
-    icon: 'fa-duotone fa-hospital'
+    icon: 'fa-solid fa-hospital'
   }
 ];

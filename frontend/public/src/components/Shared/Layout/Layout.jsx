@@ -2,7 +2,8 @@ import React from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
-const Layout = () => {
+const Layout = ({children}) => {
+  
   return (
     <>
       <div className="header">
@@ -10,10 +11,9 @@ const Layout = () => {
       </div>
       <div className="row g-0">
         <div className="col-md-3">
-<Sidebar />
-          
+          <Sidebar />
         </div>
-        <div className="col-md-9">Home Page</div>
+        <div className="col-md-9">{children}</div>
       </div>
     </>
   );
