@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Layout from "../components/Shared/Layout/Layout";
 
 const HomePage = () => {
-return(
-    <h1>
-        Home Page
-    </h1>
-)
-}
+  return (
+    <>
+      <Layout />
+    </>
+  );
+};
 
 export default HomePage;

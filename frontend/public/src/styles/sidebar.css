@@ -1,0 +1,20 @@
+.sidebar{
+    /* border-radius: 5px; */
+    height: 100vh !important;
+    background-color: #2e3200;
+    box-shadow: 0 0 20px gray;
+    color: #fff;
+}
+
+.menu {
+    padding-top: 100px;
+}
+
+.menu-item{
+    padding-top: 30px;
+}
+
+.menu-item a {
+    color: #fff;
+    
+}

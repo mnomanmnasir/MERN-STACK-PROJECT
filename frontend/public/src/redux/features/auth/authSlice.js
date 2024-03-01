@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { userLogin } from "./authAction";
+import { getCurrentUser, userLogin, userRegister } from "./authAction";
+
+const token = localStorage.getItem("token")
+  ? localStorage.getItem("token")
+  : null;
 
 const initialState = {
   loading: false,
@@ -13,19 +17,65 @@ const authSlice = createSlice({
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // login user
     builder.addCase(userLogin.pending, (state) => {
       state.loading = true;
       state.error = null;
     });
-    builder.addCase(userLogin.fulfilled, (state, {payload}) => {
-        state.loading = false;
-        state.user = payload.user;
-        state.token = payload.token;
+    builder.addCase(userLogin.fulfilled, (state, action) => {
+      state.loading = false;
+      if (action.payload) {
+        const { user, token } = action.payload;
+        state.user = user;
+        state.token = token;
+      } else {
+        // Handle the case where action.payload is undefined
+        state.error = "Unexpected response from server";
+      }
     });
-    builder.addCase(userLogin.rejected, (state, {payload}) => {
+    builder.addCase(userLogin.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
+    // register user
+    builder.addCase(userRegister.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(userRegister.fulfilled, (state, action) => {
+      state.loading = false;
+      if (action.payload) {
+        const { user } = action.payload;
+        state.user = user;
+      } else {
+        // Handle the case where action.payload is undefined
+        state.error = "Unexpected response from server";
+      }
+    });
+    builder.addCase(userRegister.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
+    
+       // current user
+       builder.addCase(getCurrentUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      });
+      builder.addCase(getCurrentUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = payload;
-    }); 
+        if (action.payload) {
+          const { user } = action.payload;
+          state.user = user;
+        } else {
+          // Handle the case where action.payload is undefined
+          state.error = "Unexpected response from server";
+        }
+      });
+      builder.addCase(getCurrentUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
