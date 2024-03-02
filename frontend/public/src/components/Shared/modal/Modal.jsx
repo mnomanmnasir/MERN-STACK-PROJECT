@@ -30,8 +30,8 @@ const Modal = () => {
         window.location.reload();
       }
     } catch (error) {
+      alert(error.response.data.message);
       window.location.reload();
-      alert(error);
     }
   };
   return (
@@ -92,7 +92,7 @@ const Modal = () => {
                 onChange={(e) => setBloodGroup(e.target.value)}
                 aria-label="Default select example"
               >
-                <option selected>Open this select menu</option>
+                <option defaultValue>Open this select menu</option>
                 <option value={"O+"}>O+</option>
                 <option value={"O-"}>O-</option>
                 <option value={"AB+"}>AB+</option>
