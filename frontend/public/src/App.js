@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/Routes/ProtectedRoute";
 import PublicRoute from "./components/Routes/PublicRoute";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import Donar from "./pages/Dashboard/Donar";
 
 function App() {
   return (
@@ -18,6 +19,14 @@ function App() {
           element={
             <ProtectedRoute>
               <HomePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/donar"
+          element={
+            <ProtectedRoute>
+              <Donar />
             </ProtectedRoute>
           }
         />

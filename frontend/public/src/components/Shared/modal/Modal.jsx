@@ -8,7 +8,7 @@ const Modal = () => {
   const [inventoryType, setInventoryType] = useState("in");
   const [bloodGroup, setBloodGroup] = useState("");
   const [quantity, setQuantity] = useState(0);
-  const [donarEmail, setDonarEmail] = useState("");
+  const [email, setEmail] = useState("");
 
   const { user } = useSelector((state) => state.auth);
 
@@ -18,19 +18,18 @@ const Modal = () => {
         return alert("Please Provide all Fields");
       }
       const { data } = await API.post("/inventory/create-inventory", {
-        donarEmail,
-        email: user?.email,
+        email,
         organization: user?._id,
         inventoryType,
         bloodGroup,
         quantity,
       });
       if (data?.success) {
-        alert("New Record Created");
         window.location.reload();
+        alert("New Record Created");
       }
     } catch (error) {
-      alert(error.response.data.message);
+      toast.warning(error.response.data.message);
       window.location.reload();
     }
   };
@@ -106,12 +105,12 @@ const Modal = () => {
                 labelText={"Donar Email"}
                 labelFor={"donarEmail"}
                 inputType={"email"}
-                value={donarEmail}
-                onChange={(e) => setDonarEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <InputType
                 labelText={"Quantity"}
-                labelFor={"qunatity"}
+                labelFor={"quantity"}
                 inputType={"Number"}
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}

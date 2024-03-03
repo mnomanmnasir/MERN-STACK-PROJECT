@@ -17,14 +17,20 @@ const Header = () => {
   return (
     <nav className="navbar">
       <div className="container-fluid">
-        <div className="navbar-brand" style={{marginTop: '-18px'}}>
+        <div className="navbar-brand" style={{ marginTop: "-18px" }}>
           <GiBloodySword color="red" /> Blood Bank App
         </div>
         <ul className="navbar-nav flex-row">
           <li className="nav-item mx-3">
             <p className="nav-link">
-              <FaRegUserCircle /> Welcome {user?.name || user?.organizationName || user?.hospitalName} &nbsp;
-              <span className="badge bg-secondary">{user?.role}</span>
+              <FaRegUserCircle /> Welcome to{" "}
+              {user?.name || user?.organizationName || user?.hospitalName}
+              <span
+                className="badge bg-danger ms-3"
+                style={{ fontSize: "90%" }}
+              >
+                {user?.role}
+              </span>
             </p>
           </li>
           <li className="nav-item mx-3">

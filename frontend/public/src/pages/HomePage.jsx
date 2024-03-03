@@ -32,24 +32,38 @@ const HomePage = () => {
         <Spinner />
       ) : (
         <>
-          <div className="container">
-            <h4
+          <div
+            className="container mt-4"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <h2 style={{ textAlign: "left" , marginTop: '10px'}}>Inventory Manage</h2>
+            <button
               className="ms-4"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-              style={{ cursor: "pointer" }}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                border: "1px solid #ccc", // Add border
+                borderRadius: "15px", // Add border radius for rounded corners
+              }}
             >
-              <i className="fa-solid fa-plus text-danger py-4"></i>
+              <i className="fa-solid fa-plus text-danger"></i>
               Add Inventory
-            </h4>
-            <table className="table">
+            </button>
+          </div>
+          {/* Align to the left */}
+          <div style={{ overflow: "auto" }} className="container mt-3">
+            <table className="table ">
               <thead>
                 <tr>
-                  <th scope="col">Blood Group</th>
-                  <th scope="col">Inventory Type</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Donar Email</th>
-                  <th scope="col">Time and Date</th>
+                  <th scope="col" className="bg-danger">Blood Group</th>
+                  <th scope="col" className="bg-danger">Inventory Type</th>
+                  <th scope="col" className="bg-danger">Quantity</th>
+                  <th scope="col" className="bg-danger">Donar Email</th>
+                  <th scope="col" className="bg-danger">Time and Date</th>
                 </tr>
               </thead>
               <tbody>
@@ -59,7 +73,7 @@ const HomePage = () => {
                       <td>{record.bloodGroup}</td>
                       <td>{record.inventoryType}</td>
                       <td>{record.quantity} (ML)</td>
-                      <td>{record.donarEmail}</td>
+                      <td>{record.email}</td>
                       <td>
                         {moment(record.createdAt).format("MM/DD/YYYY hh:mm A")}
                       </td>
@@ -67,8 +81,8 @@ const HomePage = () => {
                   ))}
               </tbody>
             </table>
-            <Modal />
           </div>
+          <Modal />
         </>
       )}
     </Layout>

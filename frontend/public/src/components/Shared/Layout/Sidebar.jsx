@@ -9,6 +9,9 @@ const Sidebar = () => {
   return (
     <div>
       <div className="sidebar">
+          {/* <h3>
+            Dashboard
+          </h3> */}
         <div className="menu">
           {userMenu.map((menu) => {
             const isActive = location.pathname === menu.path;
