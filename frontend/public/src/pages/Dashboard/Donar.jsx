@@ -21,7 +21,7 @@ const Donar = () => {
 
   useEffect(() => {
     getDonar();
-  });
+  },[]);
   return (
     <Layout>
         <div className="container mt-3">
@@ -42,7 +42,7 @@ const Donar = () => {
             {Array.isArray(data) &&
               data?.map((record) => (
                 <tr key={record._id}>
-                  <td>{record.name || record.organization + " ORG"}</td>
+                  <td>{record.name || record.organizationName || record.hospitalName}</td>
                   <td>{record.email}</td>
                   <td>{record.phone}</td>
                   <td>

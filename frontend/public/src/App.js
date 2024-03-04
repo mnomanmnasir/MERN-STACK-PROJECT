@@ -8,6 +8,12 @@ import ProtectedRoute from "./components/Routes/ProtectedRoute";
 import PublicRoute from "./components/Routes/PublicRoute";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Donar from "./pages/Dashboard/Donar";
+import Hospitals from "./pages/Dashboard/Hospitals";
+import Organization from "./pages/Dashboard/Organization";
+import Consumer from "./pages/Dashboard/Consumer";
+import Donation from "./pages/Dashboard/Donation";
+import Analytics from "./pages/Dashboard/Analytics";
+
 
 function App() {
   return (
@@ -19,6 +25,46 @@ function App() {
           element={
             <ProtectedRoute>
               <HomePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/organization"
+          element={
+            <ProtectedRoute>
+              <Organization />
+            </ProtectedRoute>
+          }
+        />
+          <Route
+          path="/hospital"
+          element={
+            <ProtectedRoute>
+              <Hospitals />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/analytics"
+          element={
+            <ProtectedRoute>
+              <Analytics />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/consumer"
+          element={
+            <ProtectedRoute>
+              <Consumer />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/donation"
+          element={
+            <ProtectedRoute>
+              <Donation />
             </ProtectedRoute>
           }
         />
