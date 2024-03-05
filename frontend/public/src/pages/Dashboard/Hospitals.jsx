@@ -24,24 +24,38 @@ const Hospitals = () => {
   });
   return (
     <Layout>
-      <div className="container mt-3">
-        <h1>Hospital Manage</h1>
-        <div style={{ overflow: "auto" }}>
-          <table className="table mt-3">
+      <div className="container mt-4">
+        <h1 style={{ textAlign: "left" , marginTop: '10px'}}>Hospital Manage</h1>
+        <div style={{ marginTop: '3%'}}>
+          <table className="table table-hover table-bordered border-dark">
             <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Email ID</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Address</th>
-                <th scope="col">Date</th>
+              <tr className="text-center">
+                <th scope="col" className="bg-danger">
+                  Name
+                </th>
+                <th scope="col" className="bg-danger">
+                  Email ID
+                </th>
+                <th scope="col" className="bg-danger">
+                  Phone
+                </th>
+                <th scope="col" className="bg-danger">
+                  Address
+                </th>
+                <th scope="col" className="bg-danger">
+                  Date
+                </th>
               </tr>
             </thead>
             <tbody>
               {Array.isArray(data) &&
                 data?.map((record) => (
                   <tr key={record._id}>
-                    <td>{record.name || record.organizationName || record.hospitalName}</td>
+                    <td>
+                      {record.name ||
+                        record.organizationName ||
+                        record.hospitalName}
+                    </td>
                     <td>{record.email}</td>
                     <td>{record.phone}</td>
                     <td>{record.address}</td>

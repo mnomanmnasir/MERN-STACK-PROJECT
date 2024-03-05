@@ -36,7 +36,7 @@ const HomePage = () => {
             className="container mt-4"
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <h2 style={{ textAlign: "left" , marginTop: '10px'}}>Inventory Manage</h2>
+            <h1 style={{ textAlign: "left" , marginTop: '10px'}}>Inventory Manage</h1>
             <button
               className="ms-4"
               data-bs-toggle="modal"
